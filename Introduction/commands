@@ -32,12 +32,14 @@ ansible -m file -a "dest=/tmp/hosts1 state=absent" all
 ansible -m copy -a 'content="Managed by Ansible\n" dest=/tmp/practice' linux
 
 =======================================
-plugin documentation tool ansible-doc
+ansible-doc displays information on modules installed in Ansible libraries. It displays a
+terse listing of modules and their short descriptions, provides a printout of their
+DOCUMENTATION strings, and it can create a short "snippet" which can be pasted into a playbook.
 For example: ansible-doc yum. Installs, upgrade, downgrades, removes, and lists packages and groups with the `yum' package manager.
 
 ========================================
 #This command will start httpd service for group "linux" 
-ansible -m service -a "name=httpd state=started" linux
+ansible -m service -a "name=httpd enabled=yes state=started" linux
 
 =========================================
 #This command will delete app. tree for group "linux"

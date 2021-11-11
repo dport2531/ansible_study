@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+   - name: copy the file
+     copy: 
+      src: /tmp/abcd
+      dest: /tmp/abcd_copy2
+      owner: dportnoy
+      group: root
+      mode: 0777
+     when: ansible_distribution == "Amazon" 

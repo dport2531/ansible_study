@@ -14,3 +14,7 @@ ansible -m command -a "hostname" all
 ======================================
 #This command will show hosts list for group "all" in hosts file
 ansible --list-hosts all
+
+======================================
+#This command will copy hosts file for group "all" in /tmp/hosts 
+ansible -m copy -a "src=/etc/ansible/hosts dest=/tmp/hosts" all

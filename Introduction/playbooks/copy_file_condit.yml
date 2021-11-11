@@ -8,4 +8,4 @@
       owner: dportnoy
       group: root
       mode: 0777
-     when: ansible_distribution == "Amazon" 
+     when: ansible_distribution == "Amazon" # it will copy file just for Amazon machines and skip for other 

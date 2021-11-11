@@ -1,0 +1,12 @@
+---
+- hosts: linux
+  tasks:
+   - name: install vsftpd
+     yum: name=vsftpd
+
+- hosts: ubuntu
+  tasks:
+    - name: install vsftpd
+      apt: name=vsftpd      
+
+      

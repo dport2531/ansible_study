@@ -19,3 +19,14 @@ ansible --list-hosts all
 #This command will copy hosts file for group "all" in /tmp/hosts 
 ansible -m copy -a "src=/etc/ansible/hosts dest=/tmp/hosts" all
 
+======================================
+#This command will change permissions and ownership for hosts1 file for group "ubuntu" in /tmp/hosts1 location
+ansible -m file -a "dest=/tmp/hosts1 mode=777 owner=dport" ubuntu 
+
+=======================================
+#This command will delete hosts1 file for group "all" in /tmp/hosts1 location
+ansible -m file -a "dest=/tmp/hosts1 state=absent" all
+
+=======================================
+#This command will edit practice file (adding Managed by Ansible text) for group "linux" in /tmp/practice location
+ansible -m copy -a 'content="Managed by Ansible\n" dest=/tmp/practice' linux

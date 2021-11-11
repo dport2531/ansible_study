@@ -1,0 +1,16 @@
+Ansible commands:
+====================================
+#This command will show info about machines in group "all" in hosts file
+ansible -m command -a "uname -a" all
+
+====================================
+#This command will ping to machines in group "linux" in hosts file
+ansible -m ping linux
+
+=====================================
+#This command will show hostaname for  machines in group "all" in hosts file
+ansible -m command -a "hostname" all
+
+======================================
+#This command will show hosts list for group "all" in hosts file
+ansible --list-hosts all

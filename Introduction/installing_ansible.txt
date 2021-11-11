@@ -1,0 +1,232 @@
+Installing Ansible on specific operating systems
+Follow these instructions to install the Ansible community package on a variety of operating systems.
+
+Installing Ansible on RHEL, CentOS, or Fedora
+On Fedora:
+
+$ sudo dnf install ansible
+On RHEL:
+
+$ sudo yum install ansible
+On CentOS:
+
+$ sudo yum install epel-release
+$ sudo yum install ansible
+RPMs for RHEL 7 and RHEL 8 are available from the Ansible Engine repository.
+
+To enable the Ansible Engine repository for RHEL 8, run the following command:
+
+$ sudo subscription-manager repos --enable ansible-2.9-for-rhel-8-x86_64-rpms
+To enable the Ansible Engine repository for RHEL 7, run the following command:
+
+$ sudo subscription-manager repos --enable rhel-7-server-ansible-2.9-rpms
+RPMs for currently supported versions of RHEL and CentOS are also available from EPEL.
+
+Note
+
+Since Ansible 2.10 for RHEL is not available at this time, continue to use Ansible 2.9.
+
+Ansible can manage older operating systems that contain Python 2.6 or higher.
+
+Installing Ansible on Ubuntu
+Ubuntu builds are available in a PPA here.
+
+To configure the PPA on your machine and install Ansible run these commands:
+
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible
+Note
+
+On older Ubuntu distributions, “software-properties-common” is called “python-software-properties”. You may want to use apt-get instead of apt in older versions. Also, be aware that only newer distributions (in other words, 18.04, 18.10, and so on) have a -u or --update flag, so adjust your script accordingly.
+
+Debian/Ubuntu packages can also be built from the source checkout, run:
+
+$ make deb
+Installing Ansible on Debian
+Debian users may use the same source as the Ubuntu PPA (using the following table).
+
+Debian
+
+Ubuntu
+
+Debian 11 (Bullseye)
+
+->
+
+Ubuntu 20.04 (Focal)
+
+Debian 10 (Buster)
+
+->
+
+Ubuntu 18.04 (Bionic)
+
+Debian 9 (Stretch)
+
+->
+
+Ubuntu 16.04 (Xenial)
+
+Debian 8 (Jessie)
+
+->
+
+Ubuntu 14.04 (Trusty)
+
+Note
+
+As of Ansible 4.0.0, new releases will only be generated for Ubuntu 18.04 (Bionic) or later releases.
+
+Add the following line to /etc/apt/sources.list or /etc/apt/sources.list.d/ansible.list:
+
+deb http://ppa.launchpad.net/ansible/ansible/ubuntu MATCHING_UBUNTU_CODENAME_HERE main
+Example for Debian 11 (Bullseye)
+
+deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main
+Then run these commands:
+
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+$ sudo apt update
+$ sudo apt install ansible
+Installing Ansible on Gentoo with portage
+$ emerge -av app-admin/ansible
+To install the newest version, you may need to unmask the Ansible package prior to emerging:
+
+$ echo 'app-admin/ansible' >> /etc/portage/package.accept_keywords
+Installing Ansible on FreeBSD
+Though Ansible works with both Python 2 and 3 versions, FreeBSD has different packages for each Python version. So to install you can use:
+
+$ sudo pkg install py27-ansible
+or:
+
+$ sudo pkg install py37-ansible
+You may also wish to install from ports, run:
+
+$ sudo make -C /usr/ports/sysutils/ansible install
+You can also choose a specific version, for example ansible25.
+
+Older versions of FreeBSD worked with something like this (substitute for your choice of package manager):
+
+$ sudo pkg install ansible
+Installing Ansible on macOS
+The preferred way to install Ansible on a Mac is with pip.
+
+The instructions can be found in Installing and upgrading Ansible with pip. If you are running macOS version 10.12 or older, then you should upgrade to the latest pip to connect to the Python Package Index securely. It should be noted that pip must be run as a module on macOS, and the linked pip instructions will show you how to do that.
+
+Note
+
+Note
+
+If you have Ansible 2.9 or older installed or Ansible 3, see Upgrading Ansible with pip.
+
+Note
+
+macOS by default is configured for a small number of file handles, so if you want to use 15 or more forks you’ll need to raise the ulimit with sudo launchctl limit maxfiles unlimited. This command can also fix any “Too many open files” errors.
+
+If you are installing on macOS Mavericks (10.9), you may encounter some noise from your compiler. A workaround is to do the following:
+
+$ CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install --user ansible
+Installing Ansible on Solaris
+Ansible is available for Solaris as SysV package from OpenCSW.
+
+# pkgadd -d http://get.opencsw.org/now
+# /opt/csw/bin/pkgutil -i ansible
+Installing Ansible on Arch Linux
+Ansible is available in the Community repository:
+
+$ pacman -S ansible
+The AUR has a PKGBUILD for pulling directly from GitHub called ansible-git.
+
+Also see the Ansible page on the ArchWiki.
+
+Installing Ansible on Slackware Linux
+Ansible build script is available in the SlackBuilds.org repository. Can be built and installed using sbopkg.
+
+Create queue with Ansible and all dependencies:
+
+# sqg -p ansible
+Build and install packages from a created queuefile (answer Q for question if sbopkg should use queue or package):
+
+# sbopkg -k -i ansible
+Installing Ansible on Clear Linux
+Ansible and its dependencies are available as part of the sysadmin host management bundle:
+
+$ sudo swupd bundle-add sysadmin-hostmgmt
+Update of the software will be managed by the swupd tool:
+
+$ sudo swupd update
+Installing and running the devel branch from source
+In Ansible 2.10 and later, the ansible/ansible repository contains the code for basic features and functions, such as copying module code to managed nodes. This code is also known as ansible-core.
+
+New features are added to ansible-core on a branch called devel. If you are testing new features, fixing bugs, or otherwise working with the development team on changes to the core code, you can install and run devel.
+
+Note
+
+You should only install and run the devel branch if you are modifying ansible-core or trying out features under development. This is a rapidly changing source of code and can become unstable at any point.
+
+Note
+
+If you want to use Ansible AWX as the control node, do not install or run the devel branch of Ansible. Use an OS package manager (like apt or yum) or pip to install a stable version.
+
+If you are running Ansible from source, you may also wish to follow the Ansible GitHub project. We track issues, document bugs, and share feature ideas in this and other related repositories.
+
+For more information on getting involved in the Ansible project, see the Ansible Community Guide. For more information on creating Ansible modules and Collections, see the Developer Guide.
+
+Installing devel from GitHub with pip
+You can install the devel branch of ansible-core directly from GitHub with pip:
+
+$ python -m pip install --user https://github.com/ansible/ansible/archive/devel.tar.gz
+Note
+
+If you have Ansible 2.9 or older installed or Ansible 3, see Upgrading Ansible with pip.
+
+You can replace devel in the URL mentioned above, with any other branch or tag on GitHub to install older versions of Ansible (prior to ansible-base 2.10.), tagged alpha or beta versions, and release candidates. This installs all of Ansible.
+
+$ python -m pip install --user https://github.com/ansible/ansible/archive/stable-2.9.tar.gz
+See Running the devel branch from a clone for instructions on how to run ansible-core directly from source.
+
+Installing devel from GitHub by cloning
+You can install the devel branch of ansible-core by cloning the GitHub repository:
+
+$ git clone https://github.com/ansible/ansible.git
+$ cd ./ansible
+The default branch is devel.
+
+Running the devel branch from a clone
+ansible-core is easy to run from source. You do not need root permissions to use it and there is no software to actually install. No daemons or database setup are required.
+
+Once you have installed the ansible-core repository by cloning, setup the Ansible environment:
+
+Using Bash:
+
+$ source ./hacking/env-setup
+Using Fish:
+
+$ source ./hacking/env-setup.fish
+If you want to suppress spurious warnings/errors, use:
+
+$ source ./hacking/env-setup -q
+If you do not have pip installed in your version of Python, install it:
+
+$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+$ python get-pip.py --user
+Ansible also uses the following Python modules that need to be installed 1:
+
+$ python -m pip install --user -r ./requirements.txt
+To update the devel branch of ansible-core on your local machine, use pull-with-rebase so any local changes are replayed.
+
+$ git pull --rebase
+$ git pull --rebase #same as above
+$ git submodule update --init --recursive
+After you run the the env-setup script, you will be running from the source code. The default inventory file will be /etc/ansible/hosts. You can optionally specify an inventory file (see How to build your inventory) other than /etc/ansible/hosts:
+
+$ echo "127.0.0.1" > ~/ansible_hosts
+$ export ANSIBLE_INVENTORY=~/ansible_hosts
+
+Confirming your installation
+Whatever method of installing Ansible you chose, you can test that it is installed correctly with a ping command:
+
+$ ansible all -m ping --ask-pass
+You can also use “sudo make install”.

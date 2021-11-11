@@ -1,0 +1,7 @@
+---
+- hosts: linux
+  tasks:
+  - name: stat vsftpd service
+    service:
+      name: vsftpd
+      state: stopped

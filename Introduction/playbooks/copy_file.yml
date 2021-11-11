@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+   - name: copy the file
+     copy: 
+      src: /tmp/abcd
+      dest: /tmp/abcd_copy
+      owner: dportnoy
+      group: root
+      mode: 0777
+
+  

@@ -30,3 +30,15 @@ ansible -m file -a "dest=/tmp/hosts1 state=absent" all
 =======================================
 #This command will edit practice file (adding Managed by Ansible text) for group "linux" in /tmp/practice location
 ansible -m copy -a 'content="Managed by Ansible\n" dest=/tmp/practice' linux
+
+=======================================
+plugin documentation tool ansible-doc
+For example: ansible-doc yum. Installs, upgrade, downgrades, removes, and lists packages and groups with the `yum' package manager.
+
+========================================
+#This command will start httpd service for group "linux" 
+ansible -m service -a "name=httpd state=started" linux
+
+=========================================
+#This command will delete app. tree for group "linux"
+ansible -m yum -a "name=tree state=absent" linux

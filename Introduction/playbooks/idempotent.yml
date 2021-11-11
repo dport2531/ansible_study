@@ -1,0 +1,7 @@
+---
+- hosts: webserver
+  tasks:
+    - name: Idempotetnt approach with Copy Modules
+      copy: 
+        dest: /tmp/resolf1.conf
+        content: "nameserver 34.204.48.120"

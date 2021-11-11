@@ -1,0 +1,8 @@
+---
+
+- name: install git on AWS EC2
+  hosts: linux
+  become: True
+  tasks:
+    - name: install git
+      yum: name=git

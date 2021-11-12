@@ -44,3 +44,7 @@ ansible -m service -a "name=httpd enabled=yes state=started" linux
 =========================================
 #This command will delete app. tree for group "linux"
 ansible -m yum -a "name=tree state=absent" linux
+
+==========================================
+#This command will perform a syntax check on the playbook, but do not execute it
+ansible-playbook --syntax-check multitasks.yml

@@ -1,0 +1,36 @@
+---
+- hosts: webserver_linux
+  vars:
+    web_pkg: httpd
+    firewall_pkg: firewalld
+    perl_pkg: perl
+    rule: http
+  tasks:
+    - name: Install Packages
+      yum:
+        name:
+          - "{{ web_pkg }}"
+          - "{{ firewall_pkg }}"
+          - "{{ perl_pkg }}"
+        state: latest
+    - name: Start and Enable HTTP service
+      service:
+        name: "{{ web_pkg }}"
+        enabled: true
+        state: started
+    - name: Start and Enable firewalld service
+      service:
+        name: "{{ firewall_pkg }}"
+        enabled: true
+        state: started
+    - name: Open the port for "{{ rule }}"
+      firewalld:
+        service: "{{ rule }}"
+        permanent: true
+        state: enabled
+        immediate: true
+    - name: Create Web Page
+      copy:
+        content: "Welcome to Ansible Playbook Automation Classes\n"
+        dest: /var/www/html.index    
+

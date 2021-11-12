@@ -15,7 +15,7 @@
         service: httpd
         permanent: True
         state: enabled
-        immidiate: yes
+        immediate: yes
     - name: Create simple HTML web page
       copy:
         content: "Welcome to Ansible Learning Course\n"

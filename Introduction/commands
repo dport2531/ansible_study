@@ -48,3 +48,7 @@ ansible -m yum -a "name=tree state=absent" linux
 ==========================================
 #This command will perform a syntax check on the playbook, but do not execute it
 ansible-playbook --syntax-check multitasks.yml
+
+===========================================
+#This command will perform one-step-at-a-time: confirm each task before running
+ansible-playbook --step multitasks.yml

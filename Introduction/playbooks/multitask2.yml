@@ -2,8 +2,9 @@
 - hosts: webserver_linux
   tasks:
     - name: Install latest package of firewalld
-      yum: firewalld
-      state: latest
+      yum: 
+        name: firewalld
+        state: latest
     - name: Start and Enable firewalld service
       service:
         name: firewalld

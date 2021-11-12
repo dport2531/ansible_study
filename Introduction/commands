@@ -52,3 +52,12 @@ ansible-playbook --syntax-check multitasks.yml
 ===========================================
 #This command will perform one-step-at-a-time: confirm each task before running
 ansible-playbook --step multitasks.yml
+
+===========================================
+#This command wil show all ansible facts for webserver_linux group
+ansible webserver_linux -m ansible.builtin.setup
+ansible webserver_linux -m setup | less
+
+===========================================
+#This command wil show ipv4 ansible facts only for webserver_linux group
+ansible webserver_linux -m setup -a "filter=*ipv4"

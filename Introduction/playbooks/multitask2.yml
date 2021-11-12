@@ -12,7 +12,7 @@
         state: started
     - name: Permit http service
       firewalld:
-        service: httpd
+        service: http
         permanent: True
         state: enabled
         immediate: yes

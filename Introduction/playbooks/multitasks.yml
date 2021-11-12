@@ -6,11 +6,11 @@
         src: /etc/apt/sources.list
         dest: /tmp/repo.list
     - name: Install Apache package
-      yum: name=httpd
-      state: latest
+      yum: 
+        name: httpd
+        state: latest
     - name: Start and enable Apache service
       service:
         name: httpd
         state: started
         enabled: True
-

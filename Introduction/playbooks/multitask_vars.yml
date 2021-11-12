@@ -32,5 +32,5 @@
     - name: Create Web Page
       copy:
         content: "Welcome to Ansible Playbook Automation Classes\n"
-        dest: /var/www/html.index    
+        dest: /var/www/html/index.html    
 

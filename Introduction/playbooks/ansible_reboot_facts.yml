@@ -1,0 +1,7 @@
+---
+- hosts: ubuntu
+  tasks:
+    - name: Reboot Ubuntu 18 version
+      command: reboot
+      when: ansible_os_family == "Ubuntu" and ansible_distribution_major_version == "18"
+    

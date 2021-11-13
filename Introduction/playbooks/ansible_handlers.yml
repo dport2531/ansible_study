@@ -1,0 +1,45 @@
+---
+- hosts: webserver_linux
+  tasks:
+    - name: Install Multiple packages
+      yum:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - vsftpd
+        - httpd
+        - postfix
+        - dovecot
+    - name: Start and Enable VSFTPD Service
+      service:
+        name: vsftpd
+        state: started
+        enabled: true      
+    - name: Start and Enable HTTP Service
+      service:
+        name: httpd
+        state: started
+        enabled: true
+    - name: Create web content
+      copy:
+        src: /tmp/html
+        dest: /var/www/vhosts/{{ ansible_hostname }}
+      notify:
+        - restart_httpd 
+# Handlers for restarting http
+      handlers:
+        - name: restart_httpd
+          service: 
+            name: httpd
+            start: restarted
+                       
+    - name: Start and Enable Postfix Service
+      service:
+        name: postfix
+        state: started
+        enabled: true
+    - name: Start and Enable Dovecot Service
+      service:
+        name: dovecot
+        state: started
+        enabled: true                              

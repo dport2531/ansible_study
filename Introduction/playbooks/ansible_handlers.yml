@@ -26,12 +26,13 @@
         dest: /var/www/vhosts/{{ ansible_hostname }}
       notify:
         - restart_httpd 
-# Handlers for restarting http
-      handlers:
-        - name: restart_httpd
-          service: 
-            name: httpd
-            start: restarted
+
+        
+  handlers:
+    - name: restart_httpd
+      service: 
+        name: httpd
+        start: restarted
                        
     - name: Start and Enable Postfix Service
       service:

@@ -32,7 +32,7 @@
     - name: restart_httpd
       service: 
         name: httpd
-        start: restarted
+        state: restarted
                        
     - name: Start and Enable Postfix Service
       service:

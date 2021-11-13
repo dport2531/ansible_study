@@ -3,12 +3,10 @@
   hosts: linux
   vars:
     apps:
-    - postfix
-    - dovecot
+      - postfix
+      - dovecot
   tasks:
     - yum:
       name: "{{ item }}"
       state: latest
-  with_items: "{{ apps }}"    
-
-
+  with_items: "{{ apps }}"

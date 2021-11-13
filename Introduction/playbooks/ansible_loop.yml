@@ -4,7 +4,7 @@
     - name: Ansible Loop
       debug: 
         msg: "{{ item }}"
-        with_items: 
-          - "Hello1"
-          - "Hello2"
-          - "Hello3"
+      with_items: 
+        - "Hello1"
+        - "Hello2"
+        - "Hello3"

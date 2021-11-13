@@ -1,0 +1,14 @@
+---
+- name: Install multiple apps. using variables
+  hosts: linux
+  vars:
+    apps:
+    - postfix
+    - dovecot
+  tasks:
+    - yum:
+      name: "{{ item }}"
+      state: latest
+  with_items: "{{ apps }}"    
+
+

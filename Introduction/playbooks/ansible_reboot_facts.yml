@@ -3,6 +3,5 @@
   tasks:
     - name: Reboot Ubuntu 18 version
       command: reboot
-      reboot_timeout: "3600"
+      reboot_timeout: 3600
       when: ansible_os_family == "Debian" and ansible_distribution_major_version == "18"
-    

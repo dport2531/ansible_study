@@ -1,2 +1,5 @@
 ---
 # tasks file for /ansible_study/Introduction/playbooks/roles/apache
+- import_tasks: install.yml
+- import_tasks: configure.yml
+- import_tasks: service.yml

@@ -14,3 +14,15 @@
       copy:
         src: /ansible_study/Introduction/playbooks/patching/kernel.repo
         dest: /etc/yum.repos.d
+    - name: Current Kernel Version
+      shell: uname -r
+      register: curr_ker
+    - name: Initiating Patching
+      yum: 
+        name=kernel 
+        state=latest
+      register: yum_update
+    - debug; msg="kernel has been updated"
+      when: yum_update.rc == 0    
+
+

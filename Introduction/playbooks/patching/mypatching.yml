@@ -35,7 +35,7 @@
       poll: 0 
     - name: Wait for system to come up
       pause:
-        minute: 3
+        minutes: 3
     - name: New Kernel Version
       shell: uname -r  
       register: new_ker

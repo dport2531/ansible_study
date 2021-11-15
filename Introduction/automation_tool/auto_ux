@@ -2,7 +2,6 @@
 
 while true
 do
-
   echo -e "Please Select your choice from below menu\n"
   echo -e " 1. Pre-Validation \n"
   echo -e " 2. User Administration \n"
@@ -21,7 +20,6 @@ do
   2)
   while true
   do
-    clear
     echo -e " 1. User Creation \n"
     echo -e " 2. User Removal \n"
     echo -e " 3. Group Add \n"
@@ -30,7 +28,6 @@ do
     case $choice in
 
     0)
-    clear
     break
     ;;
     1)

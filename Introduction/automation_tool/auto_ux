@@ -99,7 +99,7 @@ echo -e $BIYellow"##############################################################
 echo -e $BIYellow"######################################################################" $NORMAL
 echo -e $BIGreen"Usercreation Scripts for Unix Servers ################################" $NORMAL
 echo -e $BIYellow"######################################################################" $NORMAL
-                                cd /home/sverma/ansible/nwr/usercreation
+                                cd /etc/ansible/ansible_study/Introduction/automation_tool/usercreation
                                 cat usercr.yml | sed "s/abcz/$target/g" > usercr1.yml
                                 ./scr2
                                 sleep 10
@@ -109,7 +109,7 @@ echo -e $BIYellow"##############################################################
 echo -e $BIYellow"######################################################################" $NORMAL
 echo -e $BIGreen"Group Add Scripts for Unix Servers ###################################" $NORMAL
 echo -e $BIYellow"######################################################################" $NORMAL
-                                cd /home/sverma/ansible/nwr/usercreation/groupadd
+                                cd /etc/ansible/ansible_study/Introduction/automation_tool/usercreation/groupadd
                                 cat grpadd.yml | sed "s/abcz/$target/g" > grpadd2.yml
                                 ./scr
                                 ;;

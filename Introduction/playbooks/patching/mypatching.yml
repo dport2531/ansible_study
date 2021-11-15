@@ -23,6 +23,14 @@
         state=latest
       register: yum_update
     - debug: msg="kernel has been updated"
-      when: yum_update.rc == 0    
+      when: yum_update.rc == 0 
+    - name: Check if reboot is required
+      shell: kernel_new=$(rpm -qa --last kernel | head -1| awk '{print $1}' | sed 's/kernel-//g'); kernel_now=$(uname -r);  if [[ $kernel_new != $kernel_now]]; then echo "Reboot is required"; else echo "Reboot is not required"; fi
+      ignore_errors: True
+      register: reboot_check
+    - debug: msg="{{ reboot_check.stdout  }}" 
+    - name: Reboot after patching
+      command: reboot
+      when:  reboot_check.stdout == 'Reboot is required'  
 
 

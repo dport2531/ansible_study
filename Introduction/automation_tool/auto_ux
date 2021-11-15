@@ -25,5 +25,10 @@ do
   3)
   echo " Welcome to Ad Hoc Commands"
   ;;
+  *)
+  echo -e "Wrong Choice!\n"
+  read dummy
+  continue
+  ;;
   esac
 done  

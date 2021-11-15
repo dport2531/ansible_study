@@ -1,15 +1,15 @@
 ---
-- hosts: myprod
+- hosts: webserver
   become: true
   become_user: root
   vars:
-    password: $6$2u.MW22rkemc1XqT$c7GqRxtGZ9s1d5on7wyiThhEguGgctoLW.X2CZS21Etgea2.l0UnU8YxDm2/uhSiVatSUwa0yhzyXxbzSAOXC/
-    userid: 595
-    sgrp: 
-    comments: Uix Lead
-    username: jeevan
-    pgrp: 
-    hme: /home/jeevan2
+    password: $6$QC/aG8bv5Q$D6h9ouB1YYPTeI1SFRRGMh6W3sDtbZ/ICsRTpdgRTXapIs54vqCuEjQqbrSDdKmpnsT6F5ulIMnxfIgfRAUVt1
+    userid: 1111
+    sgrp: db
+    comments: Database Admin
+    username: mharris
+    pgrp: admin
+    hme: 
   tasks:
   - name: User Exist
     shell: id {{ username }}

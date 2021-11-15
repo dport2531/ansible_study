@@ -9,7 +9,7 @@ NORMAL="\033[0;39m"
 clear
 while true
 do
-  echo -e $BIRed"Please Select your choice from below menu\n"
+  echo -e $BIBlue"Please Select your choice from below menu\n"
   echo -e " 1. Pre-Validation \n"
   echo -e " 2. User Administration \n"
   echo -e " 3. Run Ad Hoc Commands \n"

@@ -78,21 +78,23 @@ my_head
   ;;
   esac
 
+done
+  
   22)
   while true
   do
-  clear
-  my_head
+    clear
+    my_head
     echo -e " 1. Target Server \n"
     echo -e " 0. Exit \n"
     echo -e " Enter your choice: \c"
     read choice
     case $choice in
-  0)
+    0)
     clear
     break
     ;;
-  1)
+    1)
     echo -e ----------------------------------------------------------------------------
     echo -e "Available Env :  All -> for All Server in this Env or Host IP " 
     cat /etc/ansible/hosts  | grep "\[" | sed "s/\[/ /g"  |  sed "s/\]/ /g"
@@ -100,12 +102,11 @@ my_head
     echo -e " Enter your Choice : \c"
     read target
     ;;
-  *)
+    *)
     echo -e "Wrong Choice !"
     read dummy
     continue
     ;;
     esac
-    done
+  done
 
-done

@@ -1,0 +1,8 @@
+---
+- hosts: webserver
+  tasks:
+    - name: Verify App/Database status
+      shell: if ps -eaf| egrep 'httpd' | grep -v grep > /dev/null; then echo 'Process is running'; else echo 'Process is not running'; fi
+      ignore_errors: true
+      register: appr_proc_check
+    - debug: msg="{{  appr_proc_check.stdout }}"  

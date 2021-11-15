@@ -9,4 +9,8 @@
     - name: Decision point to start patching
       fail:
              msg="{{ inventory_hostname }} having running application, please stop first and attempt patching"  
-      when:  appr_proc_check.stdout == 'Process is running'    
+      when:  appr_proc_check.stdout == 'Process is running'  
+    - name: Copy Kernel Repo file 
+      copy:
+        src: /ansible_study/Introduction/playbooks/patching/kernel.repo
+        dest: /etc/yum.repos.d

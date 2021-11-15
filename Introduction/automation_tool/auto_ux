@@ -18,11 +18,10 @@ echo -e $BIYellow"--------------------------------------------------------------
         echo -e "\tTarget Servers : $target"
         echo -e "-------------------------------------------------------------------------------------------------------------------------------------------"$NORMAL
 }
+
 while true
 do
-        my_head
-while true
-do
+my_head
   echo -e $BICyan"Please Select your choice from below menu\n"
   echo -e " 1. Pre-Validation \n"
   echo -e " 2. User Administration \n"

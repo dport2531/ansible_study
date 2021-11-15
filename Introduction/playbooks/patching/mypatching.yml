@@ -30,7 +30,15 @@
       register: reboot_check
     - debug: msg="{{ reboot_check.stdout  }}" 
     - name: Reboot after patching
-      command: reboot
-      when:  reboot_check.stdout == 'Reboot is required'  
+      shell: "shutdown -r y now"
+      async: 1
+      poll: 0 
+    - name: Wait for system to come up
+      pause:
+        minute: 3
+    - name: New Kernel Version
+      shell: uname -r  
+      register: new_ker
+    - debug: msg="New Kernel Version is {{ new_ker.stdout }} "      
 
 

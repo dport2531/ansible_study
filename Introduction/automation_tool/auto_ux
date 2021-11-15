@@ -3,11 +3,11 @@
 while true
 do
 
-  echo "Please Select your choice from below menu"
-  echo " 1. Pre-Validation"
-  echo " 2. User Administration"
-  echo " 3. Run Ad Hoc Commands"
-  echo " 0. Exit"
+  echo -e "Please Select your choice from below menu\n"
+  echo -e " 1. Pre-Validation\n"
+  echo -e " 2. User Administration\n"
+  echo -e " 3. Run Ad Hoc Commands\n"
+  echo -e " 0. Exit\n"
   read choice
   case $choice in
 
@@ -16,9 +16,11 @@ do
   ;;
   1)
   echo " Welcome to Pre-Validation"
+  sleep 4
   ;;
   2)
   echo " Welcome to User Administration"
+  sleep 4
   ;;
   3)
   echo " Welcome to Ad Hoc Commands"

@@ -31,13 +31,13 @@ do
     break
     ;;
     1)
-    echo -e "Welcome to User Creation"
+    echo -e "Welcome to User Creation \n"
     ;;
     2)
-    echo -e "Welcome to User Removal"
+    echo -e "Welcome to User Removal \n"
     ;;
     3)
-    echo -e "Welcome to Group Add"
+    echo -e "Welcome to Group Add \n"
     ;;
     *)
     echo -e "Wrong Choice! \n"

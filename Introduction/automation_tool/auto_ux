@@ -76,7 +76,7 @@ do
     continue
     ;;
     esac
-  done
+   done
 
   
   3)

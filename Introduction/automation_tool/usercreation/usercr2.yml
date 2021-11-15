@@ -4,12 +4,12 @@
   become_user: root
   vars:
     password: $6$QC/aG8bv5Q$D6h9ouB1YYPTeI1SFRRGMh6W3sDtbZ/ICsRTpdgRTXapIs54vqCuEjQqbrSDdKmpnsT6F5ulIMnxfIgfRAUVt1
-    userid: 1111
-    sgrp: db
-    comments: Database Admin
-    username: mharris
-    pgrp: admin
-    hme: 
+    userid: 1112
+    sgrp: 
+    comments: devops
+    username: dportnoy
+    pgrp: 
+    hme: /tmp
   tasks:
   - name: User Exist
     shell: id {{ username }}

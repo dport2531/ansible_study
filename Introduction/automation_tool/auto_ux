@@ -7,6 +7,20 @@ BIPurple='\033[1;95m'     # Purple
 BICyan='\033[1;96m'       # Cyan
 NORMAL="\033[0;39m"
 clear
+try="Yes"
+target="None"
+my_head()
+{
+
+echo -e $BIYellow"-------------------------------------------------------------------------------------------------------------------------------------------"
+        echo -e " Automation Tool to automate day to day Unix Tasks!!\c"
+        echo -e "\tTrial=$try \c"
+        echo -e "\tTarget Servers : $target"
+        echo -e "-------------------------------------------------------------------------------------------------------------------------------------------"$NORMAL
+}
+while true
+do
+        my_head
 while true
 do
   echo -e $BICyan"Please Select your choice from below menu\n"

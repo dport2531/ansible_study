@@ -21,11 +21,12 @@ echo -e $BIYellow"--------------------------------------------------------------
 
 while true
 do
-my_head
+  my_head
   echo -e $BICyan"Please Select your choice from below menu\n"
   echo -e " 1. Pre-Validation \n"
   echo -e " 2. User Administration \n"
   echo -e " 3. Run Ad Hoc Commands \n"
+  echo -e " 22. Options \n"
   echo -e " 0. Exit \n"$NORMAL
   read choice
   case $choice in
@@ -34,12 +35,22 @@ my_head
   break
   ;;
   1)
-  echo " Welcome to Pre-Validation"
+  if [ $target  = "None" ] ; then
+    echo -e "Select Target Servers from Option 22"
+    read dummy
+    else
+  echo -e "Welcome to Pre-Validation"  
   sleep 4
+  fi
   ;;
   2)
+  if [ $target  = "None" ] ; then
+    echo -e "Select Target Servers from Option 22"
+    read dummy
+    else
   while true
   do
+    my_head
     echo -e $BIPurple" 1. User Creation \n"
     echo -e " 2. User Removal \n"
     echo -e " 3. Group Add \n"
@@ -65,7 +76,7 @@ my_head
     continue
     ;;
     esac
-    done
+  done
 
   ;;
   3)

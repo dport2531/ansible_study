@@ -14,7 +14,7 @@
     - name: Fetching the User Details
       fetch:
         src: /tmp/cscdxc1155
-        dest: /home/sverma/ansible/nwr/usercreation/userdetails/details/unme-{{ inventory_hostname }}
+        dest: /etc/ansible/ansible_study/Introduction/automation_tool/usercreation/userdetails/details/unme-{{ inventory_hostname }}
         register: output
         ignore_errors: yes
         flat: yes

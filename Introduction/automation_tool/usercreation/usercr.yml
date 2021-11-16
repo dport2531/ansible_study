@@ -3,7 +3,7 @@
   become: true
   become_user: root
   vars:
-    password: $6$2u.MW22rkemc1XqT$c7GqRxtGZ9s1d5on7wyiThhEguGgctoLW.X2CZS21Etgea2.l0UnU8YxDm2/uhSiVatSUwa0yhzyXxbzSAOXC/
+    password: $6$QC/aG8bv5Q$D6h9ouB1YYPTeI1SFRRGMh6W3sDtbZ/ICsRTpdgRTXapIs54vqCuEjQqbrSDdKmpnsT6F5ulIMnxfIgfRAUVt1
     userid: usrid
     sgrp: sgrnms
     comments: cmmts
